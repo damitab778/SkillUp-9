@@ -1,0 +1,54 @@
+{
+  "name": "template",
+  "proxy": "http://127.0.0.1:8000/",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "cypress": "^10.3.0",
+    "eslint": "^8.16.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "jsconfig.json": "^2.3.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint --ext .js --ext .jsx --ignore-path .gitignore src",
+    "lint:fix": "eslint --fix --ext .js --ext .jsx --ignore-path .gitignore src",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "prettier": "^2.6.2",
+    "react-hot-loader": "^4.13.0"
+  }
+}
