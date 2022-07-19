@@ -23,16 +23,19 @@ describe('Nubi test', () => {
     cy.get('@hompageHeader')
       .and('have.css', 'font-size')
       .should('match', /48.*px/);
+    cy.screenshot();
     cy.viewport(1280, 720);
     cy.get('#hamburger').should('be.visible');
     cy.get('@hompageHeader')
       .and('have.css', 'font-size')
       .should('match', /36.*px/);
+    cy.screenshot();
     cy.viewport(960, 720);
     cy.get('@hompageHeader')
       .and('have.css', 'font-size')
       .should('match', /18.*px/);
     cy.get('.left-components > .scrollactive-nav ').should('not.be.visible');
+    cy.screenshot();
   });
 
   it('Check contactForm', () => {
@@ -68,14 +71,14 @@ describe('Nubi test', () => {
     cy.get('.left-components > .scrollactive-nav > [href="#technologies"] > button').as('navTechnologyBtn');
     cy.get('.arrows > :nth-child(2)').as('technologiesNextPageBtn');
     // cy.get('.agile__slide--current > .category > .category-items > div').as('technologyList');
-    // cy.get('.agile__slide--current > .category > h3').as('currentTechnology');
+    cy.get('.agile__slide--current > .category > h3').as('currentTechnology');
     cy.fixture('data').then(data => {
       cy.url().should('eq', data.plUrl);
       cy.get('@navTechnologyBtn').click();
       cy.url().should('eq', `${data.plUrl}#technologies`);
-      cy.get('.agile__slide--current > .category > h3').contains(data.ecosystems);
+      cy.get('@currentTechnology').contains(data.ecosystems);
       cy.get('@technologiesNextPageBtn').click({ force: true });
-      cy.get('.agile__slide--current > .category > h3').contains(data.databases);
+      cy.get('@currentTechnology').contains(data.databases);
       cy.get('.agile__slide--current > .category > .category-items > div').eq(0).contains(data.docker);
     });
   });
